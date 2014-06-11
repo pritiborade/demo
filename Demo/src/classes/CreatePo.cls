@@ -154,5 +154,10 @@ public class CreatePo
      public void demoMethod()
      {
      	system.debug('demoMethod');
+     }
+         
+         public void demoMethod1()
+        {
+     	system.debug('demoMethod');
          }
   }
