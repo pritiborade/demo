@@ -151,5 +151,8 @@ public class CreatePo
         return reRend1;
      }
       
-     
+     public void demoMethod()
+     {
+     	system.debug('demoMethod');
+         }
   }
