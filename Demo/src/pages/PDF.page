@@ -1,0 +1,58 @@
+<apex:page standardcontroller="quote" renderas="pdf" standardstylesheets="false" sidebar="false" showheader="false">
+
+<apex:panelGrid columns="2" width="50%" styleClass="quoteinfo">
+             
+	                     <apex:outputText value="Opportunity Name"/>
+                   <apex:outputText value="{!quote.Opportunity.Name}" style="text-align:right"/>
+	                </apex:panelGrid>
+
+	 <table border="1" >
+		<tr>
+		<td><apex:outputText value="Product Name" style="font-weight:bold"/></td>
+		<td><apex:outputText value="Units:" style="font-weight:bold"/></td>
+		<td> <apex:outputText value="Unit Price:" style="font-weight:bold"/></td>
+		<td> <apex:outputText value="Product Code:" style="font-weight:bold"/></td>
+		<td><apex:outputText value="Description:" style="font-weight:bold"/></td>
+		</tr>
+		
+         <apex:repeat value="{!quote.QuoteLineItems}" var="line">
+        
+		
+		<tr>
+       <!--    <apex:panelGrid columns="1" columnClasses="left,right" width="100%">
+
+                <apex:panelGroup >--> 
+			<td>
+             <apex:outputText value="{!line.pricebookEntry.Product2.name}" styleClass="productName"/>   
+				</td>
+                    <!--  <apex:outputPanel layout="block" styleClass="productDetail">-->
+
+                     <!--    <apex:panelGrid columns="2" columnClasses="left,none">-->
+
+                         
+							<td>
+                            <apex:outputField value="{!line.Quantity}"/>
+								</td>
+                           
+						<td>
+                            <apex:outputField value="{!line.UnitPrice}"/>
+								</td>
+                        
+						<td>
+                      <apex:outputField value="{!line.pricebookEntry.Product2.productCode}"/>  
+                      </td>
+						<td>
+                            <apex:outputField value="{!line.pricebookEntry.Product2.description}"/> 
+						</td>
+                     <!--      </apex:panelGrid> 
+
+                    </apex:outputPanel>
+
+               </apex:panelGroup>
+</apex:panelGrid>-->
+
+            </tr>
+             </apex:repeat> 
+        </table>
+       
+</apex:page>

@@ -1,0 +1,33 @@
+<apex:page standardController="OrderDetail__c" recordSetVar="OrderDetail__c">
+<apex:form >
+
+  <apex:pageBlock >
+  <apex:pageBlockButtons >
+      <apex:commandButton value="Save" action="{!save}"/>
+   </apex:pageBlockButtons>
+    <apex:pageBlockTable value="{!OrderDetail__c}" var="a">
+    	<apex:column headerValue="Order Name" value="{!a.Name}"/>
+      <apex:column headerValue="OrderNo" value="{!a.Order_No__c}"/>
+      <apex:column headerValue="Product Name">
+         <apex:inputField value="{!a.Product_Name__c}"/>
+      </apex:column>
+	 <apex:column headerValue="ProductCode" value="{!a.ProductCode__c}">
+      </apex:column>
+        <apex:column headerValue="UnitPrice" value="{!a.UnitPrice__c}">
+        
+      </apex:column>
+      
+       <apex:column headerValue="Quantity">
+         <apex:inputField value="{!a.Quantity__c}"/>
+      </apex:column>
+         <apex:column headerValue="Discount">
+         <apex:inputField value="{!a.Discount__c}"/>
+      </apex:column>
+       <apex:column headerValue="SubTotal"  value="{!a.SubTotal__c}">
+      </apex:column>
+       <apex:column headerValue="TotalPrice" value="{!a.TotalPrice__c}">
+      </apex:column>
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

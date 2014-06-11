@@ -1,0 +1,30 @@
+<apex:page controller="Controller_wrapclass">
+  <!-- Begin Default Content REMOVE THIS -->
+  <script type="text/javascript">
+  function selectCheckboxes(inpt,receivedInptID)
+   {
+     var inputCheckBox = document.getElementsByTagName("input");                 
+     for(var i=0; i<inputCheckBox.length; i++)
+      {         
+       if(inputCheckBox[i].id.indexOf(receivedInptID)!=-1){                                    
+          inputCheckBox[i].checked = inpt.checked;
+       }
+     }
+ }
+ </script>  
+  <h1>Congratulations</h1>
+  <apex:form >
+       <apex:pageblock >
+     <apex:pageblocktable value="{!WrapperList}" var="wraprec">
+       <apex:column value="{!wraprec.accRec.name}"/>
+       <apex:column >
+         <apex:facet name="header">
+           <apex:inputCheckbox onclick="selectCheckboxes(this,'inputId')"/>
+         </apex:facet>
+         <apex:inputCheckbox value="{!wraprec.checkflag}" id="inputId"/>
+       </apex:column>
+     </apex:pageblocktable>
+   </apex:pageblock>    
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

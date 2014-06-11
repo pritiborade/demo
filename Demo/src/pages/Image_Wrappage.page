@@ -1,0 +1,37 @@
+<apex:page controller="Controller_imgwrapclass">
+  <!-- Begin Default Content REMOVE THIS -->
+   <script type="text/javascript">
+  function selectCheckboxes(inpt,receivedInptID)
+   {
+     var inputCheckBox = document.getElementsByTagName("input");                 
+     for(var i=0; i<inputCheckBox.length; i++)
+      {         
+       if(inputCheckBox[i].id.indexOf(receivedInptID)!=-1){                                    
+          inputCheckBox[i].checked = inpt.checked;
+          inputCheckBox.value="true";
+         
+       }
+     }
+ }
+
+ </script> 
+  <h1>Congratulations</h1>
+  <apex:form >
+       <apex:pageblock >
+        <apex:inputText value="{!email}" label="Enter Email ID"/>
+        <apex:commandButton action="{!emailSend}" value="Send Mail" id="theButton" rerender="table"/>
+     <apex:pageblocktable value="{!WrapperList}" var="wraprec" id="table">
+       <apex:column >
+       <apex:image url="/servlet/servlet.FileDownload?file={!wraprec.accRec.id}" height="100" width="100" />
+       </apex:column>
+       <apex:column >
+         <apex:facet name="header">
+           <apex:inputCheckbox onclick="selectCheckboxes(this,'inputId')" />
+         </apex:facet>
+         <apex:inputCheckbox value="{!wraprec.checkflag}" id="inputId" onclick="selectoneCheckboxes(this)"/>
+       </apex:column>
+     </apex:pageblocktable>
+   </apex:pageblock>    
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

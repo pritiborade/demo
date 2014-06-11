@@ -1,0 +1,44 @@
+<apex:page controller="PlaceOrder" id="newpage" >
+<apex:form id="newform">
+<apex:pageMessages ></apex:pageMessages>
+<apex:variable var="count" value="{!1}"/>
+  <apex:pageBlock >
+ <apex:pageBlockSection Title="List of Available Products">
+  <apex:dataTable value="{!products}" var="a" columnswidth="50px,50px" cellpadding="4" border="1">
+  <apex:column >
+    <apex:facet name="header"> <apex:inputCheckbox >
+  <apex:actionSupport event="onclick" action="{!GetSelected}" onsubmit="checkAll(this)" rerender="Selected_PBS"/>
+  </apex:inputCheckbox></apex:facet>
+  <apex:inputCheckbox value="{!a.selected}" id="checkedone">
+  <apex:actionSupport event="onclick" action="{!GetSelected}" rerender="Selected_PBS"/>
+  </apex:inputCheckbox></apex:column>
+  <apex:column headervalue="Product Name" value="{!a.acc.Name}" />
+  <apex:column headervalue="Product Code" value="{!a.acc.ProductCode}" />
+  <apex:column headervalue="Description" value="{!a.acc.Description}" />
+ <apex:variable var="count" value="{!count + 1}"/>
+  <apex:column headervalue="Discount">
+  <apex:inputText value="{!a.acc.Discount__c}" id="bVAL"/></apex:column>
+  </apex:dataTable>
+  </apex:pageBlockSection>
+<apex:pageBlockSection >
+    <apex:commandButton value="Place Order" action="{!createOrder}" onclick="return validate();" />
+     </apex:pageBlockSection>
+  </apex:pageBlock>
+  
+  
+  
+  <script>
+  function checkAll(cb)
+  {
+  var inputElem = document.getElementsByTagName("input");
+  for(var i=0; i<inputElem.length; i++)
+  {
+  if(inputElem[i].id.indexOf("checkedone")!=-1)
+  inputElem[i].checked = cb.checked;
+  }
+  }   
+
+  </script>
+  </apex:form>
+ 
+</apex:page>

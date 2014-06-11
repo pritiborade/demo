@@ -1,0 +1,20 @@
+<apex:page Controller="Controller_wrapclass">
+<apex:form >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  
+   <apex:pageBlock title="Ocean Properties">
+            <apex:pageBlockSection >
+                <apex:inputText value="{!email}" 
+                    label="Enter Email ID"/>
+            </apex:pageBlockSection>
+        <apex:image url="/servlet/servlet.FileDownload?file=00Pi0000005APab" height="100" width="100" />
+         <apex:inputCheckbox />
+         <apex:image url="/servlet/servlet.FileDownload?file=00Pi0000005APaW" height="100" width="100" />
+         <apex:inputCheckbox />
+         <apex:image url="/servlet/servlet.FileDownload?file=00Pi0000005APaM" height="100" width="100" />
+         <apex:inputCheckbox />
+        </apex:pageBlock>
+  <!-- End Default Content REMOVE THIS -->
+   </apex:form>
+</apex:page>

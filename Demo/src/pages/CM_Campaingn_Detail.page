@@ -1,0 +1,28 @@
+<apex:page standardController="Campaign">
+
+<apex:form id="theform" >
+
+ 
+   <apex:pageBlock title="Campaign Deatail: " id="block" >
+    <!--  <apex:outputLink value="/apex/CM_Campaingn_Detail2?id={!Campaign.Id}">Edit</apex:outputLink> -->
+      <apex:pageBlockSection title="Campaign Deatail" columns="1">
+        <apex:inputField value="{!Campaign.Name}"/>
+        <apex:inputField value="{!Campaign.OwnerId}"/ >
+        <apex:inputField value="{!Campaign.StartDate}"/>
+        <apex:inputField value="{!Campaign.EndDate}"/ >
+        <!-- <apex:outputField value="{!Campaign.CreatedBy}"/ >
+         <apex:inputField value="{!Campaign.LastModifiedBy}"/ > -->
+          <apex:inputField value="{!Campaign.Description}"/ >
+          <apex:inputField value="{!Campaign.ParentId}"/ >
+          <apex:inputField value="{!Campaign.Type}"/ >
+          <apex:inputField value="{!Campaign.Status}"/ >
+           <apex:inputField value="{!Campaign.NumberSent}"/ >
+         
+      </apex:pageBlockSection>
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="save" />
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+
+</apex:page>

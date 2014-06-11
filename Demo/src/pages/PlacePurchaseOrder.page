@@ -1,0 +1,21 @@
+<apex:page StandardController="Order__c" extensions="PlacePo">
+<apex:form >
+<apex:pageBlock >
+<apex:pageblocksection columns="2">
+
+ <apex:inputField value="{!Order__c.Name}" required="true"/>
+
+ <apex:inputField value="{!Order__c.Order_date__c}"/>
+
+ <apex:inputField value="{!Order__c.Opportunity_Name__c}"/>
+ </apex:pageblocksection>
+ 
+ 
+ <apex:pageBlockButtons >
+                <apex:commandButton action="{!Save}" value="Continue"/>
+            </apex:pageBlockButtons>
+     </apex:pageBlock>       
+            </apex:form>
+            
+   
+</apex:page>

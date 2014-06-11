@@ -1,0 +1,51 @@
+<apex:page controller="CampaignManagementController" > 
+
+    <apex:form >
+                  
+
+      <apex:pageBlock title="Campaign Details" >
+         <apex:pageMessages />
+         <!-- Display Save and Cancel Button -->
+       
+         <!-- A PageBlockSection for Entry and Display Customer Values --> 
+              
+      
+    
+        <apex:outputLink value="/apex/CM_Campaingn_Detail?id={!campobj.Id}">| Edit| </apex:outputLink>
+        <apex:outputLink value=""> Clone| </apex:outputLink>
+        <apex:outputLink value=""> Delete| </apex:outputLink>
+         
+         <apex:outputPanel style="padding-left: 1em;">
+    <div class="menuButton" id="Actions"><apex:outputPanel layout="none">
+        <div class="menuButtonButton" id="ActionsButton"><span class="menuButtonLabel" id="ActionsLabel">Actions</span></div>
+ 
+        <div class="menuButtonMenu" id="ActionsMenu"><apex:outputPanel layout="none">
+            <apex:outputLink value="https://na15.salesforce.com/home/home.jsp">Manage Members</apex:outputLink>
+            <apex:outputLink value="#">Add Members In Mailing List</apex:outputLink>
+            
+        </apex:outputPanel></div>
+    </apex:outputPanel></div>
+</apex:outputPanel>
+
+          
+         <apex:pageBlockSection title="Campaign Details" columns="2" showHeader="false">
+          
+            <apex:outputField value="{!campobj.Name}"/>
+             <apex:outputField value="{!campobj.Owner.Name}"/>
+            <apex:outputField value="{!campobj.StartDate}"/>
+            <apex:outputField value="{!campobj.EndDate}"/>
+            <apex:outputField value="{!campobj.CreatedDate}"/>
+            <apex:outputField value="{!campobj.Description}"/>
+            <apex:outputField value="{!campobj.LastModifiedDate}"/>
+            <apex:outputField value="{!campobj.Type}"/>
+              
+         </apex:pageBlockSection>
+      </apex:pageBlock>
+      
+     
+ 
+
+ 
+   </apex:form>
+   <script type="text/javascript">new MenuButton('Actions', false);</script> 
+</apex:page>

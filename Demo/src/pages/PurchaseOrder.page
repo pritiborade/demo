@@ -1,0 +1,45 @@
+<apex:page controller="CreatePo" >
+ <apex:form >
+	<apex:pageMessages ></apex:pageMessages>
+  <apex:pageBlock Title="Purchase Order">
+   <apex:pageBlockSection >
+   <apex:inputText label="Opportunity Name" id="oppName" value="{!oppname}" required="true"/>
+   <apex:selectList label="Select Opportunity Stage" id="sel2" value="{!OppStageSelected}" multiselect="false" size="1" style="width:150px">
+                <apex:selectOptions value="{!OpportyStage}" />
+       </apex:selectList>          
+   </apex:pageBlockSection>
+  
+  
+  <apex:pageBlockSection Title="List of Available Products">
+  <apex:dataTable value="{!products}" var="a" columnswidth="50px,50px" cellpadding="4" border="1">
+  <apex:column >
+    <apex:facet name="header"> <apex:inputCheckbox >
+  <apex:actionSupport event="onclick" action="{!GetSelected}" onsubmit="checkAll(this)" rerender="Selected_PBS"/>
+  </apex:inputCheckbox></apex:facet>
+  <apex:inputCheckbox value="{!a.selected}" id="checkedone">
+  <apex:actionSupport event="onclick" action="{!GetSelected}" rerender="Selected_PBS"/>
+  </apex:inputCheckbox></apex:column>
+  <apex:column headervalue="Product Name" value="{!a.acc.Name}" />
+  <apex:column headervalue="Product Code" value="{!a.acc.ProductCode}" />
+  <apex:column headervalue="Description" value="{!a.acc.Description}" />
+  </apex:dataTable>
+  
+  </apex:pageBlockSection>
+   <apex:pageBlockSection >
+    <apex:commandButton value="Create Opportunity" action="{!createOpp}"/>
+   <!-- <apex:commandButton value="PDF" action="{!getQuoteItem}"/>-->
+     </apex:pageBlockSection>
+  </apex:pageBlock>
+  </apex:form>
+  <script>
+  function checkAll(cb)
+  {
+  var inputElem = document.getElementsByTagName("input");
+  for(var i=0; i<inputElem.length; i++)
+  {
+  if(inputElem[i].id.indexOf("checkedone")!=-1)
+  inputElem[i].checked = cb.checked;
+  }
+  }   
+  </script>
+  </apex:page>

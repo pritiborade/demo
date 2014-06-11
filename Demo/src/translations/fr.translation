@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Query Manager --></label>
+        <name>Query_Manager</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- Succes Message --></label>
+        <name>Succes_Message</name>
+    </customLabels>
+    <customTabs>
+        <label><!-- GenerateQuote --></label>
+        <name>GenerateQuote</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- ManagePriceBook --></label>
+        <name>ManagePriceBook</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- ManageProduct --></label>
+        <name>ManageProduct</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Product --></label>
+        <name>Product</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- PurchaseOrder --></label>
+        <name>PurchaseOrder</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Query Builder --></label>
+        <name>Query_Builder</name>
+    </customTabs>
+    <reportTypes>
+        <description><!-- OpportunitiesTotalRevnue --></description>
+        <label><!-- OpportunitiesTotalRevnue --></label>
+        <name>OpportunitiesTotalRevnue</name>
+        <sections>
+            <label><!-- Opportunities --></label>
+            <name>Opportunities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- PO for Opportunity --></description>
+        <label><!-- PO for Opportunity --></label>
+        <name>PO_for_Opportunity</name>
+        <sections>
+            <label><!-- Orders --></label>
+            <name>Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Telecalling Campaign Report --></description>
+        <label><!-- Telecalling Campaign Report --></label>
+        <name>Telecalling_Campaign_Report</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+</Translations>

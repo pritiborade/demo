@@ -1,0 +1,16 @@
+<apex:page standardController="Product2" recordSetVar="Products" extensions="ProductController" action="{!bumpProducts}">
+   <apex:form >
+       <apex:pageBlock title="Bump Selected Products">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!updateProduct}" value="Confirm"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!selected}" var="pro">
+                <apex:column value="{!pro.ProductCode}"/>
+                
+                <apex:column >
+                 <apex:inputField value="{!pro.Name}"/></apex:column>
+                <apex:column value="{!pro.Description}"/> 
+            </apex:pageBlockTable> 
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

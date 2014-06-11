@@ -1,0 +1,38 @@
+<apex:page standardController="Campaign" recordSetvar="accounts" extensions="campcontroller"> 
+
+  <apex:pageBlock title="User Driven Campaign" tabStyle="Campaign" >
+  <apex:form id="theForm">
+   <apex:pageBlockSection >
+    <apex:outputLink value="/701/e" style="color:Red">New</apex:outputLink>
+   </apex:pageBlockSection>
+   
+    <apex:panelGrid columns="2">
+      <apex:outputLabel value="View:"/>
+      <apex:selectList value="{!selectedIso}" size="1">
+      
+      
+    <apex:actionSupport event="onchange" rerender="opp_table" action="{!work}"/>
+        <apex:selectOptions value="{!isoCodes}"/>
+      </apex:selectList>
+  <!-- <apex:commandButton value="Go!" action="{!accounts}"/> -->
+    </apex:panelGrid>
+    <apex:pageBlockSection >
+      <apex:pageBlockTable value="{!accounts}" var="opp" id="opp_table">
+       <apex:column headerValue="Campaign Name">
+      <apex:outputLink value="/apex/CM_Campaingn_Detail?id={!opp.Id}">{!opp.name}</apex:outputLink>
+      </apex:column>
+           <!--     <apex:column value="{!opp.name}" headerValue="Campaign Name"/>  -->
+                
+                    <apex:column value="{!opp.StartDate}" headerValue="StartDate"/>
+                
+                
+                
+                    <apex:column value="{!opp.Status}" headerValue="Status"/>
+                      <apex:column value="{!opp.LastModifiedDate}" headerValue="Lastdate"/>
+                
+            </apex:pageBlockTable>
+    </apex:pageBlockSection>
+ 
+  </apex:form> 
+  </apex:pageBlock>
+</apex:page>

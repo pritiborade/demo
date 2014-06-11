@@ -1,0 +1,82 @@
+<apex:page controller="objectList">
+<apex:sectionHeader title="Query Builder" subtitle="Dynamic"/>
+ <apex:form id="theForm">
+<apex:pageMessages ></apex:pageMessages>
+   <apex:pageBlock id="pgblck">
+   
+   <apex:pageBlockSection columns="1">
+    <apex:pageBlockSectionItem >
+    <apex:panelGrid columns="2" id="abcd">
+    <apex:outputlabel value="Select Object" />      
+    <apex:selectList value="{!ObjectSelected}" multiselect="false" id="ObjPickList" size="1">
+      <apex:actionSupport event="onchange" rerender="pgblck"  status="counterStatus" action="{!clearpicklist}"/>
+       <apex:selectOptions value="{!ObjList}"/>
+    </apex:selectList>
+    </apex:panelGrid>
+     </apex:pageBlockSectionItem>
+  <apex:pageBlockSectionItem >
+   
+   <apex:outputPanel id="out">
+<apex:panelGrid columns="4" id="abcd">
+<apex:outputlabel value="Select Fileds" />
+            <apex:selectList value="{!FieldSelected}" multiselect="true" id="Field" size="8" style="width:220px">
+       <apex:selectOptions value="{!FieldList}"/>
+        </apex:selectList>
+                <apex:panelGroup >
+                    <br/>
+                    <apex:image value="{!$Resource.ForwardArrowImg}" width="40" height="40">
+                    <apex:actionSupport event="onclick" action="{!selectclick}" reRender="pgblck"/>
+                    </apex:image>
+                    <br/><br/>
+                    <apex:image value="{!$Resource.BackwardArrowImg}" width="40" height="40">
+                   <apex:actionSupport event="onclick" action="{!unselectclick}" reRender="pgblck"/>
+                    </apex:image>
+                </apex:panelGroup>
+            <apex:selectList id="sel2" value="{!rightselected}" multiselect="true"  size="8" style="width:220px">
+                <apex:selectOptions value="{!SelectedValues}" />
+            </apex:selectList>
+        </apex:panelGrid>
+
+    
+      </apex:outputPanel>
+     
+     </apex:pageBlockSectionItem>
+      <apex:actionStatus id="counterStatus" startText=" (Processing...)"  /> <p/>
+    <apex:panelGrid columns="4" id="abcd">
+    <apex:outputlabel value="Sort As" for="Sorting"/>
+       <apex:selectRadio value="{!radio}">
+            <apex:selectOptions value="{!radioItems}"/>
+      </apex:selectRadio>
+       <apex:outputlabel value="Maximum # Records to Display" for="MaxRecords"/>
+      <apex:selectList id="sel2" value="{!MaxRecordSelected}" multiselect="false" size="1" style="width:150px" >
+                <apex:selectOptions value="{!MaxRecord}" />
+      </apex:selectList>
+  </apex:panelGrid>
+     
+     <apex:pageBlockSectionItem >
+     <apex:commandButton value="Execute Query " action="{!displayQuery}"/>
+      </apex:pageBlockSectionItem>
+      
+      <apex:pageBlockSectionItem >
+      <apex:panelGrid columns="1">
+       <apex:outputlabel value="SOQL Query" />
+     <apex:inputTextarea id="newDesc" disabled="true" cols="200" rows="5" value="{!query}"   />
+     </apex:panelGrid>
+     </apex:pageBlockSectionItem>
+    
+    <apex:outputLabel > SOQL Result</apex:outputLabel><br/>
+    
+  <apex:pageBlockTable rendered="{!IF(records.size != 0 , true , false)}" value="{!records}" var="rec">  
+                <apex:column headerValue="id" >
+                  <apex:outputLink value="/{!rec.Id}">View </apex:outputLink>
+                  </apex:column> 
+                <apex:repeat value="{!rightselected}" var="FieldLable">  
+                    <apex:column value="{!rec[FieldLable]}" rendered="{!IF(FieldLable != '--None--' , true, false)}"/>  
+                </apex:repeat>  
+            </apex:pageBlockTable> 
+     
+      </apex:pageBlockSection>
+ 
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

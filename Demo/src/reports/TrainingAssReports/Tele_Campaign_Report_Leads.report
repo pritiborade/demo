@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Lead$Name</field>
+    </columns>
+    <description>Tele Campaign Report Leads</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead$LeadSource</column>
+            <operator>equals</operator>
+            <value>Web,Other</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead$Status</column>
+            <operator>equals</operator>
+            <value>Open - Not Contacted</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead$Lead_Priority__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead$Lead_City__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Tele Campaign Report Leads</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Telecalling_Campaign_Report__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead$LastModifiedDate</dateColumn>
+        <endDate>2014-04-04</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-01-04</startDate>
+    </timeFrameFilter>
+</Report>

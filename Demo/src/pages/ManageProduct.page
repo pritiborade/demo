@@ -1,0 +1,3 @@
+<apex:page controller="RedirectProduct" action="{!Redirect}">
+ 
+</apex:page>

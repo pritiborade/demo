@@ -1,0 +1,38 @@
+<apex:page standardController="Student__c" extensions="MyController8" >
+<!--<apex:page standardController="Account" recordSetVar="accounts">-->
+    <apex:form >
+    <apex:pageBlock title="{!$Label.Succes_Message}"  rendered="{!NOT(ISNULL(flg))}"> </apex:pageBlock>
+     
+            <apex:pageBlock > 
+        <apex:selectList size="1" id="mypic" value="{!Selectedlanguage}">
+         <apex:selectOption itemValue="" itemLabel="--Select--"/>
+         <apex:selectOption itemValue="fr" itemLabel="French"/>
+         <apex:selectOption itemValue="en_US" itemLabel="English"/>
+        <apex:selectOption itemValue="es" itemLabel="Spanish"/> 
+        
+          <apex:actionSupport event="onchange" action="{!doSearch}" />
+        
+      </apex:selectList>
+       </apex:pageBlock>
+       
+          <apex:pageBlock mode="edit">
+            <apex:pageMessages />
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Student__c.Name}"/>
+                <apex:inputField value="{!Student__c.city__c}"/>
+                <apex:inputField value="{!Student__c.Country__c}"/>
+                <apex:inputField value="{!Student__c.Course__c}"/>
+                <apex:inputField value="{!Student__c.Gender__c}"/>
+                <apex:inputField value="{!Student__c.H_S_C__c}"/>
+               <apex:inputField value="{!Student__c.Roll_number__c}"/>
+              <apex:inputField value="{!Student__c.S_S_C__c}"/>
+              <apex:inputField value="{!Student__c.State__c}"/>
+           <!--   <apex:inputField value="{!Student__c.Student_Name__c}"/>-->
+            
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="save" action="{!save}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page controller="ManagePricebookN">
+  <apex:form id="theForm">
+<apex:pageMessages ></apex:pageMessages>
+   <apex:pageBlock id="pgblck">
+   
+   <apex:pageBlockSection columns="1">
+    <apex:pageBlockSectionItem >
+    <apex:panelGrid columns="2" id="abcd">
+    <apex:outputlabel value="Select Price Book" />      
+    <apex:selectList value="{!pnameSelected}" multiselect="false" id="pnamePickList" size="1">
+      <apex:actionSupport event="onchange" status="counterStatus" action="{!getPBookId}" />
+       <apex:selectOptions value="{!PnameList}"/>
+    </apex:selectList>
+    </apex:panelGrid>
+     </apex:pageBlockSectionItem>
+     </apex:pageBlockSection>
+     </apex:pageBlock>
+    </apex:form>
+</apex:page>

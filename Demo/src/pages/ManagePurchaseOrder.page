@@ -1,0 +1,39 @@
+<apex:page controller="ManagePo" >
+<apex:form >
+<apex:pageMessages ></apex:pageMessages>
+  <apex:pageBlock >
+ <apex:pageBlockSection Title="List of Available Orders">
+  <apex:dataTable value="{!Orders}" var="a" columnswidth="50px,50px" cellpadding="4" border="1">
+  <apex:column >
+    <apex:facet name="header"> <apex:inputCheckbox >
+  <apex:actionSupport event="onclick" action="{!GetSelected}" onsubmit="checkAll(this)" rerender="Selected_PBS"/>
+  </apex:inputCheckbox></apex:facet>
+  <apex:inputCheckbox value="{!a.selected}" id="checkedone">
+  <apex:actionSupport event="onclick" action="{!GetSelected}" rerender="Selected_PBS"/>
+  </apex:inputCheckbox></apex:column>
+  <apex:column headervalue="Order No" value="{!a.acc.Order_No__c}" />
+  <apex:column headervalue="Order Name" value="{!a.acc.Name}" />
+  <apex:column headervalue="Opportunity Name" value="{!a.acc.Opportunity_Name__c}" />
+  </apex:dataTable>
+  
+  </apex:pageBlockSection>
+<apex:pageBlockSection >
+    <apex:commandButton value="MassDelete Orders" action="{!deletePO}" />
+    <apex:commandButton value="MassUpdate Orders" action="{!updatePO}" />
+</apex:pageBlockSection>
+  </apex:pageBlock>
+  </apex:form>
+  
+  
+            <script>
+  function checkAll(cb)
+  {
+  var inputElem = document.getElementsByTagName("input");
+  for(var i=0; i<inputElem.length; i++)
+  {
+  if(inputElem[i].id.indexOf("checkedone")!=-1)
+  inputElem[i].checked = cb.checked;
+  }
+  }   
+  </script>
+</apex:page>

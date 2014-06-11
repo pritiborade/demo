@@ -1,0 +1,7 @@
+<apex:page controller="CreatePo" >
+ <apex:form >
+
+  <apex:commandButton value="PDF" action="{!getQuoteItem}"/>
+   </apex:form>
+   
+</apex:page>
